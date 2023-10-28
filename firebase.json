@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/user-mngt-system",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
