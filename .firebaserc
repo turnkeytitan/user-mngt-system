@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "user-mng-sys"
+  },
+  "targets": {
+    "user-mng-sys": {
+      "hosting": {
+        "user-mngt-system": [
+          "user-mng-sys"
+        ]
+      }
+    }
   }
 }

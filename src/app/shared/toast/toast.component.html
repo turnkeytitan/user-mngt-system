@@ -1,0 +1,9 @@
+<button
+  *ngIf="toast | async as toasty"
+  class="toast"
+  [ngClass]="toasty.type"
+  (click)="closeToast()"
+  (keydown)="closeToast()"
+>
+  <p>{{ toasty.message }}</p>
+</button>

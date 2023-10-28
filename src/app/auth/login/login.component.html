@@ -9,6 +9,12 @@
       <label for="password">Password:</label>
       <input type="password" id="password" formControlName="password" />
     </div>
-    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    <button type="submit" [disabled]="!loginForm.valid && !loginForm.touched">
+      Login
+    </button>
+    <pre>
+      {{ loginForm.valid }}
+      {{ loginForm.touched }}
+    </pre>
   </form>
 </div>

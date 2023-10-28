@@ -1,2 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "normalize.css/normalize.css";
+:root {
+  --success-color: #acea68;
+  --error-color: #f5672e;
+  --info-color: #ebd437;
+}

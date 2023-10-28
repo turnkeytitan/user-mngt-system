@@ -1,0 +1,39 @@
+.toast {
+  max-width: 25rem;
+  min-height: 4rem;
+  position: fixed;
+  padding: 1rem;
+  border-radius: 5px;
+  border: solid 1px black;
+  pointer-events: none;
+  top: 5rem;
+  right: 1rem;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0.8rem;
+    height: 0.2rem;
+    background-color: white;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+    pointer-events: all;
+  }
+  &::after {
+    transform: rotate(45deg);
+  }
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &.success {
+    background: var(--success-color);
+  }
+  &.error {
+    background: var(--error-color);
+  }
+  &.info {
+    background: var(--info-color);
+  }
+}
