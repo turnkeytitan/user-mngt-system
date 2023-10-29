@@ -28,12 +28,12 @@
   }
 
   &.success {
-    background: var(--success-color);
+    background: theme("colors.success");
   }
   &.error {
-    background: var(--error-color);
+    background: theme("colors.error");
   }
   &.info {
-    background: var(--info-color);
+    background: theme("colors.info");
   }
 }

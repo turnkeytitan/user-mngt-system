@@ -56,4 +56,11 @@ export class LoginComponent implements OnDestroy {
       });
     }
   }
+
+  get username() {
+    return this.loginForm.controls.username;
+  }
+  get password() {
+    return this.loginForm.controls.password;
+  }
 }

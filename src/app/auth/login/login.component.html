@@ -1,9 +1,14 @@
 <div class="login-container">
-  <h2>Login</h2>
+  <h1 class="text-red">Login</h1>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="username">Username:</label>
       <input type="text" id="username" formControlName="username" />
+      <span
+        class="text-red-500 font-semibold"
+        *ngIf="username.getError('email') && username.touched"
+        >A correct email is needed</span
+      >
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
@@ -12,9 +17,5 @@
     <button type="submit" [disabled]="!loginForm.valid && !loginForm.touched">
       Login
     </button>
-    <pre>
-      {{ loginForm.valid }}
-      {{ loginForm.touched }}
-    </pre>
   </form>
 </div>
