@@ -1,1 +1,67 @@
-<p>products works!</p>
+<div>
+  <h2 class="text-3xl font-bold text-center">Products</h2>
+  <section class="flex">
+    <app-list
+      class="flex-1"
+      [items]="products"
+      (newItemEvent)="editProduct($event)"
+    />
+    <form
+      [formGroup]="productForm"
+      (ngSubmit)="addProduct()"
+      class="flex flex-col justify-center items-center gap-4 flex-[2_2_0%]"
+    >
+      <div class="flex w-full flex-col justify-center items-center">
+        <label for="name" class="text-gray-700 text-sm font-bold mb-2"
+          >Name:</label
+        >
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <div class="flex w-full flex-col justify-center items-center">
+        <label for="description" class="text-gray-700 text-sm font-bold mb-2"
+          >Description:</label
+        >
+        <textarea
+          id="description"
+          formControlName="description"
+          class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize"
+        ></textarea>
+      </div>
+      <div class="flex w-full flex-col justify-center items-center">
+        <label for="price" class="text-gray-700 text-sm font-bold mb-2"
+          >Price:</label
+        >
+        <input
+          type="number"
+          id="price"
+          formControlName="price"
+          class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <div class="flex w-full flex-col justify-center items-center">
+        <label for="inventory" class="text-gray-700 text-sm font-bold mb-2"
+          >Inventory:</label
+        >
+        <input
+          type="number"
+          id="inventory"
+          formControlName="inventory"
+          class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="!productForm.valid"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+      >
+        {{ productForm.controls.id.value === "" ? "Add" : "Edit" }} Product
+      </button>
+    </form>
+  </section>
+</div>

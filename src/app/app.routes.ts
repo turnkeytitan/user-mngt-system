@@ -21,13 +21,6 @@ export const routes: Routes = [
           ),
       },
       {
-        path: 'inventory',
-        loadComponent: () =>
-          import('./home/inventory/inventory.component').then(
-            (m) => m.InventoryComponent,
-          ),
-      },
-      {
         path: 'sales',
         loadComponent: () =>
           import('./home/sales/sales.component').then((m) => m.SalesComponent),

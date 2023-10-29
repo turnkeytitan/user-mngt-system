@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<header
+  class="header flex items-center justify-between gap-4 px-4 mb-4 bg-slate-400"
+>
+  <img
+    src="../../../assets/notebook.png"
+    alt="logo resembling a notebook"
+    class="header__logo"
+  />
+  <nav class="header__nav gap-4 flex flex-wrap">
+    <a
+      class="hover:bg-sky-700/20 p-4"
+      routerLink="./products"
+      routerLinkActive="bg-rose-200/20"
+      >Products</a
+    >
+    <a
+      class="hover:bg-sky-700/20 p-4"
+      routerLink="./sales"
+      routerLinkActive="bg-rose-200/20"
+      >Sales</a
+    >
+  </nav>
+  <button class="header__logout">Log out</button>
+</header>

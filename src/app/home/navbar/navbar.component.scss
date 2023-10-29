@@ -1,0 +1,15 @@
+.header {
+  min-height: 4rem;
+  flex-wrap: wrap;
+  width: 100%;
+  &__logo {
+    max-width: 100rem;
+    max-height: 100px;
+  }
+  &__nav {
+    display: flex;
+  }
+  &__logout {
+    justify-self: flex-end;
+  }
+}
