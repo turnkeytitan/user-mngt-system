@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { UserSignIn } from '../models/user-sign-in.type';
 import { Observable, from } from 'rxjs';
 
@@ -7,11 +7,14 @@ import { Observable, from } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private auth: AngularFireAuth) {}
+  constructor(private auth: Auth) {}
 
   signIn(params: UserSignIn): Observable<any> {
     return from(
-      this.auth.signInWithEmailAndPassword(params.username, params.password),
+      signInWithEmailAndPassword(this.auth, params.username, params.password),
     );
+  }
+  logOut(): Observable<any> {
+    return from(signOut(this.auth));
   }
 }

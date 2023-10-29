@@ -6,7 +6,6 @@ import {
   collectionData,
   doc,
   updateDoc,
-
 } from '@angular/fire/firestore';
 import { Product } from '../products/models/product';
 import { Observable, from } from 'rxjs';
@@ -22,7 +21,7 @@ export class ProductsService {
   }
   editProduct(place: Product) {
     const { id, ...rest } = place;
-    return from(updateDoc(this.docRef(`products/${id}`),rest));
+    return from(updateDoc(this.docRef(`products/${id}`), rest));
   }
   docRef(ref: string) {
     return doc(this.fs, ref);

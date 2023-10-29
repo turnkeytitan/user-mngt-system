@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class ToastService {
-  toastSubject: Subject<Toast | null> = new Subject();
+  private toastSubject: Subject<Toast | null> = new Subject();
 
   showToast(toast: Toast) {
     this.toastSubject.next(toast);
