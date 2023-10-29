@@ -23,7 +23,9 @@
     "paths": {
       "@shared/*": ["src/app/shared/*"],
       "@services/*": ["src/app/core/services/*"],
-      "@interfaces/*": ["src/app/core/interfaces/*"]
+      "@interfaces/*": ["src/app/core/interfaces/*"],
+      "@products/*": ["src/app/home/products/*"],
+      "@sales/*": ["src/app/home/sales/*"]
     }
   },
   "angularCompilerOptions": {

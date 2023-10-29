@@ -8,11 +8,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { Product } from './models/product';
-import { ProductsService } from '../services/products.service';
 import { Subscription } from 'rxjs';
 import { EMPTY_SUBSCRIPTION } from 'rxjs/internal/Subscription';
 import { ListComponent } from './list/list.component';
 import { ToastService } from '@services/toast/toast.service';
+import { ProductsService } from '@services/products/products.service';
 
 @Component({
   selector: 'app-products',

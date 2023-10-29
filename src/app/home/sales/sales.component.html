@@ -1,1 +1,35 @@
-<p>sales works!</p>
+<h2 class="text-3xl font-bold text-center">Invoice</h2>
+<section class="flex justify-around">
+  <app-list [items]="products" (newItemEvent)="addProduct($event!)" />
+  <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
+    <div
+      formArrayName="products"
+      *ngFor="let product of productsArray.controls; let i = index"
+    >
+      <div [formGroupName]="i" class="flex">
+        <input
+          formControlName="name"
+          placeholder="Product name"
+          class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+        <input
+          formControlName="quantity"
+          placeholder="Quantity"
+          class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+        <button
+          (click)="removeProduct(i)"
+          class="bg-slate-400 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+        >
+          Remove Product
+        </button>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+    >
+      Submit
+    </button>
+  </form>
+</section>

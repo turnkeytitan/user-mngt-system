@@ -2,6 +2,7 @@
   type="button"
   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
   (click)="editProduct(null)"
+  *ngIf="addable"
   (keydown)="editProduct(null)"
 >
   Add new product
@@ -10,8 +11,8 @@
   <li *ngFor="let item of items">
     <button
       class="cursor-pointer h-8 px-2 bg-orange-200 rounded-md"
-      (click)="editProduct(item)"
-      (keydown)="editProduct(item)"
+      (click)="editProduct(item, $event)"
+      (keypress)="editProductkey(item, $event)"
     >
       {{ item.name }}
     </button>

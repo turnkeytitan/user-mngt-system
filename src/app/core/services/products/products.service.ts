@@ -7,7 +7,7 @@ import {
   doc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { Product } from '../products/models/product';
+import { Product } from '@products/models/product';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
