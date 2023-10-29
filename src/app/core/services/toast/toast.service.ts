@@ -11,7 +11,7 @@ export class ToastService {
     this.toastSubject.next(toast);
     setTimeout(() => {
       this.hideToast();
-    }, 50000);
+    }, 5000);
   }
 
   hideToast() {
