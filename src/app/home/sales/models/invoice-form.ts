@@ -7,8 +7,8 @@ type InvoiceProduct = FormGroup<{
   id: FormControl<string>;
   name: FormControl<string>;
   price: FormControl<number>;
-  quantity: FormControl<string>;
+  quantity: FormControl<number>;
   inventory: FormControl<number>;
 }>;
 
-export {InvoiceForm, InvoiceProduct}
+export { InvoiceForm, InvoiceProduct };

@@ -24,6 +24,7 @@
       "@shared/*": ["src/app/shared/*"],
       "@services/*": ["src/app/core/services/*"],
       "@interfaces/*": ["src/app/core/interfaces/*"],
+      "@validators/*": ["src/app/core/validators/*"],
       "@products/*": ["src/app/home/products/*"],
       "@sales/*": ["src/app/home/sales/*"]
     }

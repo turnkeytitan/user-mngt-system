@@ -47,7 +47,6 @@ export class LoginComponent implements OnDestroy {
       };
       this.signIn$ = this.auth.signIn(user).subscribe({
         next: (res) => {
-          console.log(res.user);
           this.router.navigate(['home']);
         },
         error: (err) => {

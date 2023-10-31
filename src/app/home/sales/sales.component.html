@@ -1,33 +1,68 @@
 <h2 class="text-3xl font-bold text-center">Invoice</h2>
-<section class="flex justify-around">
-  <app-list [items]="products" (newItemEvent)="addProduct($event!)" />
-  <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
+<section class="flex justify-between gap-4">
+  <article>
+    <h2 class="title-2 text-center">Add an item to the invoice</h2>
+    <app-list
+      [items]="products"
+      (newItemEvent)="addProduct($event!)"
+      class="flex-[1_1_20%]"
+    />
+  </article>
+  <form
+    [formGroup]="invoiceForm"
+    (ngSubmit)="onSubmit()"
+    class="flex flex-[2_1_70%] mx-12 gap-4 flex-col"
+  >
     <div
       formArrayName="products"
+      class="flex flex-col"
       *ngFor="let product of productsArray.controls; let i = index"
     >
-      <div [formGroupName]="i" class="flex">
-        <input
-          formControlName="name"
-          placeholder="Product name"
-          class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        />
-        <input
-          formControlName="quantity"
-          placeholder="Quantity"
-          class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        />
-        <button
-          (click)="removeProduct(i)"
-          class="bg-slate-400 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
-        >
+      <div
+        [formGroupName]="i"
+        class="grid grid-cols-4 gap-4 items-center justify-center"
+      >
+        <p>
+          {{ product.value.name }}
+        </p>
+        <p>
+          {{ product.value.price | currency }}
+        </p>
+
+        <div class="flex flex-col">
+          <input
+            formControlName="quantity"
+            placeholder="Quantity"
+            type="number"
+            class="w-48 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <span
+            class="text-red-500 font-semibold"
+            *ngIf="
+              !control(i).controls.quantity.valid &&
+              control(i).controls.quantity.touched
+            "
+            >Not a valid amount</span
+          >
+        </div>
+        <button (click)="removeProduct(i)" class="btn btn--secondary">
           Remove Product
         </button>
       </div>
     </div>
+    <div
+      class="grid grid-cols-4 gap-4 items-center justify-center w-full"
+      *ngIf="formHasItems"
+    >
+      <p class="font-bold">total:</p>
+      <p>{{ totalPrice | currency }}</p>
+      <p>{{ totalQuantity }}</p>
+    </div>
     <button
       type="submit"
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+      *ngIf="formHasItems"
+      class="btn"
+      [disabled]="!productsArray.valid"
     >
       Submit
     </button>

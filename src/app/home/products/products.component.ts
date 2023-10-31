@@ -58,21 +58,13 @@ export class ProductsComponent implements OnDestroy {
     if (this.productForm.valid) {
       const productData: Product = this.productForm.getRawValue();
       const { id, ...rest } = productData;
-
-      console.log(productData.inventory, productData.price);
       if (productData.price > 0) {
         if (id === '') {
-          this.addProduct$ = this.productService.addProduct(rest).subscribe({
-            next: console.log,
-            error: console.log,
-          });
+          this.addProduct$ = this.productService.addProduct(rest).subscribe();
         } else {
           this.addProduct$ = this.productService
             .editProduct(productData)
-            .subscribe({
-              next: console.log,
-              error: console.log,
-            });
+            .subscribe();
         }
         this.productForm.reset();
       } else {

@@ -15,19 +15,19 @@ import { Observable, from } from 'rxjs';
 })
 export class ProductsService {
   constructor(private fs: Firestore) {}
-  addProduct(place: Omit<Product, 'id'>) {
-    const placeRef = collection(this.fs, 'products');
-    return from(addDoc(placeRef, place));
+  addProduct(prod: Omit<Product, 'id'>) {
+    const prodRef = collection(this.fs, 'products');
+    return from(addDoc(prodRef, prod));
   }
-  editProduct(place: Product) {
-    const { id, ...rest } = place;
+  editProduct(prod: Product) {
+    const { id, ...rest } = prod;
     return from(updateDoc(this.docRef(`products/${id}`), rest));
   }
   docRef(ref: string) {
     return doc(this.fs, ref);
   }
   getProducts() {
-    const placeRef = collection(this.fs, 'products');
-    return collectionData(placeRef, { idField: 'id' }) as Observable<Product[]>;
+    const prodRef = collection(this.fs, 'products');
+    return collectionData(prodRef, { idField: 'id' }) as Observable<Product[]>;
   }
 }
