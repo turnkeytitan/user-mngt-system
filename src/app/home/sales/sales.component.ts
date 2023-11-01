@@ -82,7 +82,7 @@ export class SalesComponent implements OnDestroy {
       .subscribe({
         next: () => {
           this.toast.showToast({ type: 'success', message: 'Invoice saved' });
-          this.productsArray.reset();
+          this.invoiceForm.controls.products.clear();
         },
       });
   }
